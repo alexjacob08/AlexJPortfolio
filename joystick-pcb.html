@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick-Controlled 4-Direction LED PCB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="name">Alexander Jacob Portfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="resume.html">Resume</a>
+        </div>
+    </nav>
+
+    <main class="project-detail-page">
+        <article class="project-detail">
+            <header class="project-detail-header">
+                <a href="projects.html" class="back-link">← Back to Projects</a>
+                <h1>Joystick-Controlled 4-Direction LED PCB</h1>
+                <p class="project-subtitle">From Arduino Breadboard Prototype to Custom KiCad PCB</p>
+                <div class="project-tags" aria-label="Project technologies">
+                    <span class="project-tag">ELEGOO UNO R3</span>
+                    <span class="project-tag">KiCad</span>
+                    <span class="project-tag">PCB Design</span>
+                    <span class="project-tag">Circuit Prototyping</span>
+                    <span class="project-tag">1kΩ Resistor</span>
+                    <span class="project-tag">Brown-Black-Black-Brown-Brown</span>
+                </div>
+            </header>
+
+            <section class="project-section">
+                <h2>Project Overview</h2>
+                <p>
+                    I designed and tested a four-direction LED indicator controlled by a two-axis joystick.
+                    The project began as a physical ELEGOO UNO R3 breadboard prototype and was then translated into a complete KiCad schematic and custom PCB design.
+                    Each joystick direction activates a dedicated LED through a consistent 1kΩ current-limiting resistor value used across the physical circuit build because a 220Ω resistor was not available at the time.
+                </p>
+                <div class="project-info-grid">
+                    <div class="info-item">
+                        <span>Controller</span>
+                        <strong>ELEGOO UNO R3</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Input</span>
+                        <strong>2-Axis Analog Joystick</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Outputs</span>
+                        <strong>4 Directional LEDs</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>PCB Type</span>
+                        <strong>Through-Hole</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Design Software</span>
+                        <strong>KiCad</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>Working Prototype</h2>
+                <div class="video-frame">
+                    <video class="responsive-video" controls preload="metadata" poster="joystick-prototype.jpg">
+                        <source src="media/joystick-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p>
+                    The ELEGOO UNO R3 reads the joystick's X and Y analog outputs and determines the direction of movement.
+                    Based on the detected direction, the corresponding UP, DOWN, LEFT, or RIGHT LED is activated using the same resistor value throughout the physical circuit.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Physical Prototype</h2>
+                <figure class="project-figure">
+                    <img src="joystick-prototype.jpg" alt="Physical Arduino and breadboard prototype with joystick and four directional LEDs" class="detail-image" loading="lazy">
+                    <figcaption>
+                        Physical Arduino and breadboard prototype used to test joystick inputs and directional LED behavior before designing the PCB.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="project-section">
+                <h2>Circuit Schematic</h2>
+                <div class="project-figure schematic-embed-wrap">
+                    <embed src="media/joystick-schematic.pdf" type="application/pdf" class="schematic-embed" />
+                    <p class="pdf-caption">If the PDF does not display, you can <a href="media/joystick-schematic.pdf" target="_blank" rel="noopener">open the schematic here</a>.</p>
+                </div>
+                <p>
+                    The schematic contains four independent directional LED output branches, each using a consistent 1kΩ current-limiting resistor value matching the real physical prototype build.
+                    The joystick interface exposes 5V, GND, VRx, VRy, and SW signals, while the ELEGOO UNO R3 header carries the joystick signals and directional LED outputs.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>PCB Design</h2>
+                <figure class="project-figure">
+                    <img src="media/joystick-pcb-final.png" alt="KiCad PCB layout showing directional LED placement and routed copper traces" class="detail-image clickable-image" loading="lazy">
+                </figure>
+                <p>
+                    After completing the schematic, I assigned through-hole footprints, arranged the components in a directional layout, routed the copper traces, and added a ground plane.
+                    The physical LED placement corresponds to the UP, DOWN, LEFT, and RIGHT joystick directions.
+                </p>
+                <div class="project-tags" aria-label="PCB features">
+                    <span class="project-tag">Through-Hole Components</span>
+                    <span class="project-tag">Custom Copper Routing</span>
+                    <span class="project-tag">Ground Plane</span>
+                    <span class="project-tag">Silkscreen Labels</span>
+                    <span class="project-tag">Connector Pin Labels</span>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>3D PCB Visualization</h2>
+                <figure class="project-figure">
+                    <img src="media/joystick-pcb-3d-final.png" alt="KiCad 3D rendered view of the completed joystick LED PCB" class="detail-image clickable-image" loading="lazy">
+                </figure>
+                <div class="verification-panel">
+                    <h3>Design Verification</h3>
+                    <ul class="verification-list">
+                        <li>✓ 0 DRC Violations</li>
+                        <li>✓ 0 Unconnected Items</li>
+                    </ul>
+                </div>
+                <p>
+                    KiCad's Design Rules Checker was used to verify routing, connectivity, clearances, and board geometry before finalizing the design.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Engineering Process</h2>
+                <ol class="process-list">
+                    <li>
+                        <div class="process-step-number">1</div>
+                        <div>
+                            <strong>Prototype</strong>
+                            <span>Built and wired the Arduino breadboard circuit.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="process-step-number">2</div>
+                        <div>
+                            <strong>Test</strong>
+                            <span>Verified joystick readings and directional LED behavior.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="process-step-number">3</div>
+                        <div>
+                            <strong>Schematic</strong>
+                            <span>Recreated the circuit in KiCad.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="process-step-number">4</div>
+                        <div>
+                            <strong>Footprints &amp; Placement</strong>
+                            <span>Assigned through-hole footprints and positioned the components.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="process-step-number">5</div>
+                        <div>
+                            <strong>Routing</strong>
+                            <span>Routed signal traces and added the GND copper plane.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="process-step-number">6</div>
+                        <div>
+                            <strong>Verification</strong>
+                            <span>Ran ERC and DRC checks.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="process-step-number">7</div>
+                        <div>
+                            <strong>3D Review</strong>
+                            <span>Inspected the finished PCB using KiCad's 3D Viewer.</span>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="project-section">
+                <h2>Skills Demonstrated</h2>
+                <div class="skills-grid">
+                    <span class="skill-pill">KiCad Schematic Capture</span>
+                    <span class="skill-pill">PCB Layout &amp; Routing</span>
+                    <span class="skill-pill">Through-Hole Footprints</span>
+                    <span class="skill-pill">Ground Planes</span>
+                    <span class="skill-pill">ERC / DRC Debugging</span>
+                    <span class="skill-pill">Arduino</span>
+                    <span class="skill-pill">Analog Joystick Input</span>
+                    <span class="skill-pill">Circuit Prototyping</span>
+                    <span class="skill-pill">Hardware Debugging</span>
+                    <span class="skill-pill">Technical Documentation</span>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>What I Learned</h2>
+                <p>
+                    This project gave me experience moving beyond breadboard prototyping into a complete PCB design workflow.
+                    I learned how schematic connectivity translates into physical copper routing, how footprint and component placement affect board layout,
+                    how ground planes simplify routing, and how ERC and DRC tools can identify design errors before manufacturing. It also reinforced how practical component availability affects a real build, since the physical prototype used a consistent 1kΩ resistor value across all LED branches because a 220Ω resistor was not available at the time.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-name">Alexander Jacob</div>
+            <div class="footer-contact">
+                <a href="mailto:alexanderpjacob2020@gmail.com">alexanderpjacob2020@gmail.com</a>
+                <a href="mailto:apjacob@usc.edu">apjacob@usc.edu</a>
+                <a href="tel:13108906718">1-310-890-6718</a>
+                <a href="https://www.linkedin.com/in/alexander-jacob-0471aa295/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+        <img src="" alt="" class="lightbox-image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
